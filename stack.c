@@ -4,7 +4,7 @@
  * Compilation: gcc -o stack stack.c
  * Execution:./stack
  *
- * @Aniket , (1910990836) , 05/07/2021
+ * @Aniket , (1910990836) ,  05/07/2021
  * Day_2_Coding_Assignment
  */
 #include<stdio.h>
