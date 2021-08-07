@@ -1,8 +1,8 @@
 /**
  * Program to implement stack in c language.
  *
- * Compilation: gcc -o ques_1 ques_1.c
- * Execution:./ques_1
+ * Compilation: gcc -o stack stack.c
+ * Execution:./stack
  *
  * @Aniket , (1910990836) , 05/07/2021
  * Day_2_Coding_Assignment
