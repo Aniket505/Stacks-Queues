@@ -1,0 +1,90 @@
+/*
+ *
+ * Program for Largest Triangle In Histogram
+ * 
+ * Aniket, Roll_No : 1910990836
+*/
+
+int stack[10000];
+int top = -1;
+int is_empty()
+{
+    if(top == -1)
+        return 1;
+    else
+        return 0;
+}
+
+void push(int item)
+{
+    if(top + 1 == 10000)
+    {
+        printf("Stack Overflow");
+    }
+    else
+    {
+        top++;
+        stack[top] = item;
+    }
+}
+
+int pop()
+{
+    int y;
+    if(is_empty())
+    {
+        printf("Stack Underflow");
+    }
+
+    y = stack[top];
+    top--;
+    return y;
+}
+
+int peek()
+{
+    return stack[top];
+}
+
+int max(int a, int b)
+{
+    if(a > b)
+        return a;
+    else
+        return b;
+}
+
+int largestRectangleArea(int* heights, int heightsSize){
+    int ans = 0;
+    for (int i = 0; i <= heightsSize; i++)
+    {
+        int x;
+        if(i == heightsSize)
+        {
+            x = 0;
+        }
+        else
+        {
+            x = heights[i];
+        }
+
+        while (!is_empty() && heights[peek()] >= x)
+        {
+            int curr = pop();
+            int next_bar = i - 1;
+            int prev_bar;
+            if(is_empty())
+            {
+                prev_bar = 0;
+            }
+            else
+                prev_bar = peek() + 1;
+            int maxArea = heights[curr] * (next_bar - prev_bar + 1);
+            if (maxArea > ans)
+                ans = maxArea;
+        }
+        if (i != heightsSize)
+            push(i);
+    }
+    return ans;
+}
